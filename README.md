@@ -11,6 +11,18 @@ AI 自主渗透测试系统（Go 后端 + Next.js 前端）
 
 ---
 
+## 来源与基线
+
+本仓库是 ARTEX 官方仓库 `Autumn-27/ARTEX` 在 2026-10 下架前的最后版本，此后由本仓库自行维护。
+
+- 基线提交：`e6ec569`（`docs(changelog): 定版 0.3.15`，2026-10-07）
+- 许可证：AGPL-3.0，与原项目一致，见 [LICENSE](LICENSE)
+- 与原作者、以及其他第三方备份仓库均无关联
+
+上游停止维护后，原「一键更新」指向的 `Autumn-27/artex` 已不可用，现改指本仓库的 Release。该常量决定程序从哪下载新版本，也决定谁能让你的机器执行新代码：`selfupdate/github.go` 里的 `Repo` 应始终指向你信任的发布源，部署前值得核对一眼。
+
+---
+
 ## 截图预览
 
 > 完整交互见[在线 Demo](https://artex-demo.vercel.app/)。
@@ -69,7 +81,7 @@ AI 自主渗透测试系统（Go 后端 + Next.js 前端）
 ### 方式一：一键安装脚本（推荐）
 
 ```bash
-git clone https://github.com/Autumn-27/ARTEX.git
+git clone https://github.com/Heamborn/ARTEX.git
 cd ARTEX
 ./install.sh
 ```
@@ -84,7 +96,7 @@ cd ARTEX
 ### 方式二：Docker Compose（手动）
 
 ```bash
-git clone https://github.com/Autumn-27/ARTEX.git
+git clone https://github.com/Heamborn/ARTEX.git
 cd ARTEX
 cp .env.example .env          # 填 POSTGRES_PASSWORD、可选 ANTHROPIC_API_KEY
 docker compose up -d          # 拉取 autumn27/artex 镜像 + postgres
@@ -100,7 +112,7 @@ docker compose up -d          # 拉取 autumn27/artex 镜像 + postgres
 
 ### 方式三：下载预编译二进制（Releases）
 
-到 [Releases](https://github.com/Autumn-27/ARTEX/releases) 下载对应平台的 zip，解压后得到 `artex` + `start.sh`（Windows 为 `start.bat`）+ `skills/` + `config.example.json`：
+到 [Releases](https://github.com/Heamborn/ARTEX/releases) 下载对应平台的 zip，解压后得到 `artex` + `start.sh`（Windows 为 `start.bat`）+ `skills/` + `config.example.json`：
 
 ```bash
 cp config.example.json config.json   # 填好 database 连接
@@ -182,7 +194,7 @@ docker image prune -f          # 清理旧镜像（可选）
 
 ### 方式四：预编译二进制（Releases）
 
-到 [Releases](https://github.com/Autumn-27/ARTEX/releases) 下载新版本 zip，停掉旧进程后覆盖 `artex` 与 `skills/`（保留你的 `config.json` 与 `data/`），重启即可：
+到 [Releases](https://github.com/Heamborn/ARTEX/releases) 下载新版本 zip，停掉旧进程后覆盖 `artex` 与 `skills/`（保留你的 `config.json` 与 `data/`），重启即可：
 
 ```bash
 cp -r <解压目录>/skills ./ && cp <解压目录>/artex ./

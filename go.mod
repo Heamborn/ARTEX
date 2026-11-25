@@ -60,3 +60,7 @@ require (
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
+
+// norma 是原作者自有的私有模块，上游仓库已随 ARTEX 一起下架。
+// 源码固化在 third_party/norma（v0.4.3），避免 module proxy 缓存失效后无法构建。
+replace github.com/Autumn-27/norma => ./third_party/norma

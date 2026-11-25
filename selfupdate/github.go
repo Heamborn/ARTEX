@@ -12,7 +12,11 @@ import (
 
 // Repo 是发布源。写死而不是做成配置项：更新源可配等于给任何能改配置的人一条
 // 远程代码执行通道，对一个渗透测试平台来说这个口子开不得。
-const Repo = "Autumn-27/artex"
+//
+// 原上游 Autumn-27/artex 已于 2026-10 下架，本仓库接管维护后改指 Heamborn/ARTEX。
+// 该常量决定「一键更新」从哪个 Release 拉包，谁控制这个仓库谁就能决定装机内容，
+// 改动它等同于改动所有使用者的下一次启动，评审时按最高优先级对待。
+const Repo = "Heamborn/ARTEX"
 
 // latestURL 是 GitHub 的"最新正式版"接口。它会自动跳过 prerelease 和 draft。
 const latestURL = "https://api.github.com/repos/" + Repo + "/releases/latest"
